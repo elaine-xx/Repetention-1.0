@@ -24,8 +24,12 @@ String[] months = {"January", "February", "March", "April", "May", "June", "July
 int[] monthLengths = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 String[] daysOfWeek = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
 
-Day selectedDay;
+int selectedDay; //two vars to help with gui functionality
+int currentMonth;
 
+
+color circleCol = color(150);
+int circleSize = 50;
 
 Day[][][] Days;
 
@@ -44,10 +48,5 @@ void draw() {
   } else if (DrawDayScreen == true) {
     //month, day
     drawDayScreen(month, dayBeingShown);
-  }
-
-  for (int i=0; i < 7; i++) {
-    textSize(18);
-    text(daysOfWeek[i], paddingX + (paddingX/2.0) + 25 + daySizeX * i, 165);
   }
 }

@@ -1,6 +1,6 @@
 void drawDayScreen(int month, int day) {
-  int saveThisDay4Later = day;
   int padding = 70;
+  currentMonth = month;
   textSize(40);
   fill(255);
   rectMode(CORNERS);  
@@ -26,6 +26,14 @@ void drawDayScreen(int month, int day) {
   fill(0,0,255);
   text("Difficulty/Priority", 610, 486);
   fill(255);
+  
+  for (int i=0; i<Days[year-startingYear][month-1][selectedDay].events.size(); i++) {
+    fill(0);
+    textSize(20);
+    text(Days[year-startingYear][month-1][selectedDay].events.get(i).name, 96, 160+35*i); //9 event maximum
+    fill(255);
+  }
+  
   
   if (mousePressed == true) {
     if(mouseX >= 900 && mouseX <= 940) {

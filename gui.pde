@@ -23,10 +23,11 @@ public void custom_slider1_change1(GCustomSlider source, GEvent event) { //_CODE
 } //_CODE_:custom_slider1:398991:
 
 public void button1_click1(GButton source, GEvent event) { //_CODE_:button1:825285:
-  String eventName = textfield1.getText();
-  Event newEvent = new Event(eventName, custom_slider1.getValueI());
-  selectedDay.events.add(newEvent);
-  textfield1.setText("");
+  String eventName = textfield1.getText(); //get text in textfield1
+  Event newEvent = new Event(eventName, custom_slider1.getValueI()); //create new event
+  Days[year-startingYear][month-1][selectedDay].events.add(newEvent); //add event to the particular day
+  textfield1.setText(""); //reset text in textfield1
+
 } //_CODE_:button1:825285:
 
 

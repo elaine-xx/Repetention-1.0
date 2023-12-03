@@ -16,8 +16,8 @@ class Day {
   
   void mouseClicked() { 
     if (mouseX >= this.x && mouseX <= this.x + this.SizeX && mouseY >= this.y && mouseY <= this.y + this.SizeY) {
-      this.Colour = color(255, 0, 0);
-      selectedDay = this;
+      //this.Colour = color(255, 0, 0);
+      selectedDay = this.dayNum;
     }
   }
   
@@ -28,7 +28,7 @@ class Day {
           if (mouseX >= Days[year - startingYear][month - 1][i].x && mouseX <= Days[year - startingYear][month - 1][i].x + Days[year - startingYear][month - 1][i].SizeX ) {
             if (mouseY + calDownShift >= Days[year - startingYear][month - 1][i].y + Days[year - startingYear][month - 1][i].SizeY && mouseY + calDownShift <= Days[year - startingYear][month - 1][i].y + Days[year - startingYear][month - 1][i].SizeY*2) {                
               if (SelectedOnce == false && (Days[year - startingYear][month - 1][i].dayNum != 0)) {
-                Days[year - startingYear][month - 1][i].Colour = color(255,0,0);
+                //Days[year - startingYear][month - 1][i].Colour = color(255,0,0);
                 DrawDayScreen = true;                                    
                 dayBeingShown = Days[year - startingYear][month - 1][i].dayNum;
               }
@@ -53,5 +53,11 @@ class Day {
     stroke(0);
     if(this.dayNum > 0)
       text(this.dayNum, this.x + 5, this.y + 20);
+      
+    if(this.events.size() > 0){
+      fill(circleCol);
+      noStroke();
+      circle(this.x + this.SizeX/2.0, this.y + this.SizeY/2.0, circleSize);
+    }
   }
 }
